@@ -10,6 +10,10 @@ footer {
     width: 100%;
 }
 
+svg path {
+    fill: #ffffff;
+}
+
 .footer-link {
     margin: 0 8px 12px;
     font-size: 12px;
