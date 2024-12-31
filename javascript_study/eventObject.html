@@ -15,8 +15,20 @@
             text2: "",
         }
 
-        function handleInputOnKeyDown() {
-            
+        function handleInputOnKeyDown(e) {
+            if(e.keyCode !== 13) {
+                return;
+            }
+            const nextInput = document.querySelector(".text-input2");
+            nextInput.focus(); 
+        }
+
+        function handleInputOnKeyDown2(e) {
+            if(e.keyCode !== 13) {
+                return;
+            }
+            const submitButton = document.querySelector(".submit-button");
+            submitButton.click();
         }
 
         function handleInputOnChange() {
@@ -49,6 +61,8 @@
 
             textInputElement.onkeyup = handleInputOnChange;
             textInputElement2.onkeyup = handleInputOnChange2;
+            textInputElement.onkeydown = handleInputOnKeyDown;
+            textInputElement2.onkeydown = handleInputOnKeyDown2;
             submitButtonElement.onclick = handleSubmitOnClick;
         }
     </script>
