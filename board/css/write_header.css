@@ -8,6 +8,7 @@
 }
 
 .back-button {
+    width: 50px;
     & > svg {
         width: 30px;
         height: 30px;
@@ -15,8 +16,14 @@
     }
 }
 
+.main-header-title {
+    margin: 0;
+    color: #eeeeee;
+    cursor: default;
+}
+
 .write-submit-button {
-    padding: 0 5px;
+    width: 50px;
     font-size: 18px;
     color: #ff9d00;
     letter-spacing: 2px;
