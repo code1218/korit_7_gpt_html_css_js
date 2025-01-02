@@ -1,4 +1,5 @@
 let boardInputDatas = {
+    id: 0,
     title: "",
     content: "",
     writer: "",
@@ -19,23 +20,9 @@ function setButtonEvent() {
 }
 
 function handleSubmitOnClick() {
-    console.log(boardInputDatas);
+    saveBoard();
     clear();
-
 }
-
-function clear() {
-    const titleInput = document.querySelector(".main-article > input:nth-of-type(1)");
-    const contentInput = document.querySelector(".main-article > textarea");
-    const writerInput = document.querySelector(".main-article > input:nth-of-type(2)");
-    const inputs = [titleInput, contentInput, writerInput];
-    inputs.forEach(input => input.value = "");
-    boardInputDatas = {
-        title: "",
-        content: "",
-        writer: "",
-    };
-} 
 
 function handleBoardInputOnChange(e) {
     boardInputDatas = {
@@ -43,6 +30,39 @@ function handleBoardInputOnChange(e) {
         [e.target.name]: e.target.value,
     };
 }
+
+function saveBoard() {
+    let boardDatas = !!localStorage.getItem("boardDatas") 
+        ? JSON.parse(localStorage.getItem("boardDatas"))
+        : [];
+
+    if(boardDatas.length > 0 ) {
+        boardInputDatas.id = boardDatas[boardDatas.length - 1].id + 1;
+    }
+
+    boardDatas = [
+        ...boardDatas,
+        boardInputDatas,
+    ]
+
+    localStorage.setItem("boardDatas", JSON.stringify(boardDatas));
+
+    console.log(boardDatas);
+}
+
+function clear() {
+    const titleInput = document.querySelector(".main-article > input:nth-of-type(1)");
+    const contentInput = document.querySelector(".main-article > textarea");
+    const writerInput = document.querySelector(".main-article > input:nth-of-type(2)");
+    const inputs = [ titleInput, contentInput, writerInput ];
+    inputs.forEach(input => input.value = "");
+
+    boardInputDatas = {
+        title: "",
+        content: "",
+        writer: "",
+    };
+} 
 
 setInputsEvent();
 setButtonEvent();
