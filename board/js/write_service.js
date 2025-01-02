@@ -47,7 +47,8 @@ function saveBoard() {
 
     localStorage.setItem("boardDatas", JSON.stringify(boardDatas));
 
-    console.log(boardDatas);
+    alert("게시글 작성 완료.");
+    location.href = "./list.html";
 }
 
 function clear() {
@@ -62,7 +63,7 @@ function clear() {
         content: "",
         writer: "",
     };
-} 
+}
 
 setInputsEvent();
 setButtonEvent();
