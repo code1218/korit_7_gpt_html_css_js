@@ -1,0 +1,17 @@
+.main-article {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px 20px;
+
+    & input,
+    & textarea {
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        background-color: #fafafa;
+    }
+
+}
